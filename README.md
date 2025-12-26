@@ -123,58 +123,62 @@ Failure comes in two forms: Physical collapse or Moral collapse.
 
 ---
 
-## V. Characters (The Infected)
+## V. Characters & Progression
 
-**Visuals**: Pale skin. Glowing **Cyan/Neon Blue** liquid leaks from wounds instead of blood.
+### A. Arthur - "The Breaker" (Tank / Crowd Control)
+* **Role**: Creating cover and physical separation.
+* **Ability**: **Gravity Shield** - Deploys a one-way shield.
+* **Ability**: **Breach** - Smashes through specific "Weak Walls" (highlighted in UI).
 
-### A. Arthur - "The Breaker"
-* **Background**: Construction Worker.
-* **Visuals**: Right arm heavily mutated with exoskeleton-like plating. Cracks glow red.
-* **Abilities**:
-    * **Gravity Shield**: Deploys a one-way shield to block bullets and push forward.
-    * **Breach**: Smash through walls to create shortcuts.
-* **Tactics**: Hold the shield to protect teammates who are stabilizing a dying enemy.
-* **Weakness**: Slow movement, large hitbox.
+### B. Rin - "The Phantom" (Scout / Medic)
+* **Role**: Rapid response and risky rescues.
+* **Ability**: **Phase Dash** - Invincible during dash frames.
+* **Ability**: **Ghosting** - Can move through thin walls.
 
-### B. Rin - "The Phantom"
-* **Background**: Track & Field Athlete.
-* **Visuals**: **Fiber Optic Veins**. Her legs pulse with bioluminescent blue light.
-    * *Feedback*: Dim when calm; Blindingly bright when dashing; Glitching when critical.
-* **Abilities**:
-    * **Phase Dash**: High-speed dash that leaves a decoy trail.
-    * **Ghosting**: Can phase through thin walls or enemies during dash.
-* **Weakness**: Low health, easily suppressed.
+### C. Dr. Aris - "The Silencer" (Support / Debuff)
+* **Role**: Information warfare and enemy suppression.
+* **Ability**: **Neuro Pulse** - AoE Jamming (disables comms and heavy weapons).
+* **Ability**: **Combat Medic** - Passive: Stabilize speed +50%.
 
-### C. Dr. Aris - "The Silencer"
-* **Background**: Betrayed Scientist.
-* **Visuals**: Mutated eye, wears a digital monocle to suppress sensory overload.
-* **Abilities**:
-    * **Neuro Pulse**: EMP blast that jams enemy guns and blinds night-vision goggles.
-    * **Hacker Vision**: See traps and circuits through walls.
-* **Passive**: **Combat Medic**—Stabilizes enemies 50% faster and sees exact bleed-out timers.
-* **Weakness**: Weak melee, Strain increases faster.
+### D. Mutation Evolution (Progression System)
+Players collect "Viral Samples" from hidden caches to evolve abilities.
+* **Arthur's Evolution**:
+    * *Lvl 1*: **Kinetic Payback** - Shield absorbs damage and releases a shockwave when dropped (Non-lethal knockback).
+    * *Lvl 2*: **Bunker** - Shield width increases by 50%.
+* **Rin's Evolution**:
+    * *Lvl 1*: **Afterimage** - Dash leaves a hologram that distracts enemies for 2s.
+    * *Lvl 2*: **Transfusion** - Dashing through an enemy steals 5% Strain from you and gives it to them (Stuns them).
+* **Dr. Aris' Evolution**:
+    * *Lvl 1*: **Feedback Loop** - Jammed enemies drop "Bio-batteries" that reduce team Strain.
+    * *Lvl 2*: **Remote Hack** - Can trigger environmental traps (sprinklers, shutters) from a distance.
+
+### E. Team Synergy (Resonance Actions)
+Mechanics that require two characters to interact.
+1.  **Phalanx Charge (Arthur + Rin)**: Rin dashes *through* Arthur's shield -> Shield creates a forward moving energy wave -> Knocks back all enemies in a corridor.
+2.  **Amped Static (Arthur + Aris)**: Aris uses Neuro Pulse while standing behind Arthur's Shield -> Pulse range doubled.
 
 ---
 
-## VI. Antagonists
+## VI. Antagonists & AI Logic
 
-Enemies are tactical human squads. They prioritize cover, flanking, and suppression.
+Enemies are defined by strict behavior states (State Machine) and distinct loadouts.
 
-### Units
-* **Riot Police**: Hesitant. Use tasers/pistols.
-* **PMC Mercs**: Standard threat. Use suppression fire.
-* **The Cleaners**: Elite units in HAZMAT suits. Immune to standard melee.
+### A. Unit Stats & Behavior
+| Unit Type | Weapon | Dmg (HP) | Dmg (Strain) | Behavior Tag |
+| :--- | :--- | :--- | :--- | :--- |
+| **Riot Police** | Taser X26 | 5 | **25** | `Coward`: Flees if alone. Flanks if grouped. |
+| **PMC Merc** | Carbine | **15** | 10 | `Suppressor`: Holds position, fires continuously to pin player. |
+| **The Cleaner** | Flamethrower | 10/sec | **40/sec** | `Hunter`: Always moves toward player. Immune to Stun. |
 
-### Boss Fights (Survival Puzzles)
-1.  **FBI Negotiator** (J's Bar Entrance)
-    * *Mechanic*: Deadeye aim.
-    * *Strategy*: Push forward using cover. **Escape** while he reloads.
-2.  **CIA Spook** (Dark Hospital)
-    * *Mechanic*: Cuts power, uses flashbangs and C4.
-    * *Strategy*: Use thermal vision to find traps. Shoot sprinklers to reveal laser tripwires. **Activate elevator to escape**.
-3.  **KGB Brute** (Underground Lab)
-    * *Mechanic*: Heavy armor, flamethrower.
-    * *Strategy*: Lure under a suspended cargo container. Shoot the chain. **Trap him (Non-lethal)**.
+### B. AI State Machine
+For implementation, enemy AI follows this logic flow:
+1.  **IDLE**: Static or patrolling fixed nodes. `FOV = 60 degrees, Range = 10m`.
+2.  **SUSPICIOUS**: Heard noise/Saw glimpse. Move to investigate location. `FOV = 90 degrees`.
+3.  **ALERT**: Confirmed visual. Radios for backup (3s delay). If interrupted, backup call fails.
+4.  **ENGAGE**: Line of Sight established.
+    * *If Player Strain < 50%*: Use lethal weapons.
+    * *If Player Strain > 80%*: "Target Critical!" AI switches to containment tactics (Flashbangs/Nets) to capture.
+5.  **CRITICAL (Bleeding Out)**: HP < 0. Drop weapon. Trigger `Death_Timer (30s)`.
 
 ---
 
@@ -197,7 +201,7 @@ Enemies are tactical human squads. They prioritize cover, flanking, and suppress
         1.  Wait for him to reload.
         2.  Shoot the fan support -> Fan falls -> Traps him (Pinned).
         3.  Steal Keycard -> Run.
-    * *Failure State*: If you shoot him -> He enters "Bleeding Out" -> You must stabilize him within 30s or Game Over.
+    * *Failure State*: If you shoot him -> He enters "Bleeding Out" -> You must stabilize him within 20s or Game Over.
 
 ---
 
@@ -232,7 +236,25 @@ Enemies are tactical human squads. They prioritize cover, flanking, and suppress
 * **Design Consultant**: Gemini (AI)
 * **Community Contributors**:
     * *Joshthedruid2* (Reddit) - For genre clarification and tactical feedback.
-    * *WittyConsideration57* (Reddit) - For critical feedback on algorithm definition and implementation feasibility, pushing this project from abstract idea to concrete specification.
+    * *WittyConsideration57* (Reddit) - For critical feedback on algorithm definition, progression systems, and technical implementation specs.
+
+---
+
+## XI. Technical Specifications (For Prototyping)
+
+### A. Grid & Metrics (If 2D Tactical)
+* **Tile Size**: 1 Unit = 1 Meter.
+* **Player Movement**: 6 Units/Turn (or 6m/s in Real-time).
+* **Cover System**:
+    * *Half Cover*: Reduces Hit Chance by 40%.
+    * *Full Cover*: Reduces Hit Chance by 80%.
+
+### B. Field of View (FOV) Algorithm
+* **Type**: Raycasting (2D) or Frustum Culling (3D).
+* **Rules**:
+    * Origin: Enemy Head Bone.
+    * Occlusion: Static Geometry (Walls) blocks rays. Dynamic Objects (Tables) block rays if `Object_Height > 1.2m`.
+    * **Visibility Check**: `IF Raycast(Enemy, Player) == TRUE AND Angle < FOV_Cone THEN Seen = TRUE`.
 
 > **Contact**
 > If you are interested in developing this project, feel free to reach out via Email (spellpluspoleaxe@gmail.com). I am happy to provide further consultation on mechanics and lore.
