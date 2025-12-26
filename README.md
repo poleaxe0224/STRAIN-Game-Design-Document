@@ -50,7 +50,7 @@
 ## III. Core Mechanic: The STRAIN Gauge
 
 This is your lifeline, replacing the traditional HP bar.
-**UI Design**: A dynamic EKG-style monitor stretching across the top of the screen.
+**UI Design**: A dynamic EKG-style monitor stretching across the top of the screen (Refer to Concept Art).
 
 ### A. Rules of Strain
 * **Passive Accumulation**: Increases slowly over time (viral corruption).
@@ -121,27 +121,6 @@ Failure comes in two forms: Physical collapse or Moral collapse.
 * **Sequence**: Time Freeze -> Zoom in on corpse -> Protagonist screams -> STRAIN instantly fills to 100% -> Overload.
 * **Screen Text**: "PROVEN GUILTY".
 
-## VI-A. Sample Level Design: "J's Bar" (Tutorial Stage)
-
-**Objective**: Escape through the back alley.
-**Constraint**: The back door is locked. Keycard is on the "FBI Negotiator".
-
-**Zone Layout & Item Placement**:
-1.  **The Front Area (Entry)**:
-    * *Enemy*: 2x Riot Police (Patrolling).
-    * *Item*: **Stabilizer (Small)** - Located behind the counter. Reduces Strain by 10%.
-2.  **The Corridor (Choke Point)**:
-    * *Hazard*: Security Camera. If spotted -> Spawns 1x PMC Merc.
-    * *Tactic*: Use Dr. Aris to hack the camera OR Rin to phase through the blind spot.
-3.  **The VIP Room (Boss Arena)**:
-    * *Boss*: **FBI Negotiator**. He takes cover behind the pool table.
-    * *Dynamic Event*: A ceiling fan is wobbling above him.
-    * *Solution (Non-Lethal)*:
-        1.  Wait for him to reload.
-        2.  Shoot the fan support -> Fan falls -> Traps him (Pinned).
-        3.  Steal Keycard -> Run.
-    * *Failure State*: If you shoot him -> He enters "Bleeding Out" -> You must stabilize him within 20s or Game Over.
-
 ---
 
 ## V. Characters (The Infected)
@@ -199,7 +178,30 @@ Enemies are tactical human squads. They prioritize cover, flanking, and suppress
 
 ---
 
-## VII. The Gameplay Loop
+## VII. Sample Level Design: "J's Bar" (Tutorial Stage)
+
+**Objective**: Escape through the back alley.
+**Constraint**: The back door is locked. Keycard is on the "FBI Negotiator".
+
+**Zone Layout & Item Placement**:
+1.  **The Front Area (Entry)**:
+    * *Enemy*: 2x Riot Police (Patrolling).
+    * *Item*: **Stabilizer (Small)** - Located behind the counter. Reduces Strain by 10%.
+2.  **The Corridor (Choke Point)**:
+    * *Hazard*: Security Camera. If spotted -> Spawns 1x PMC Merc.
+    * *Tactic*: Use Dr. Aris to hack the camera OR Rin to phase through the blind spot.
+3.  **The VIP Room (Boss Arena)**:
+    * *Boss*: **FBI Negotiator**. He takes cover behind the pool table.
+    * *Dynamic Event*: A ceiling fan is wobbling above him.
+    * *Solution (Non-Lethal)*:
+        1.  Wait for him to reload.
+        2.  Shoot the fan support -> Fan falls -> Traps him (Pinned).
+        3.  Steal Keycard -> Run.
+    * *Failure State*: If you shoot him -> He enters "Bleeding Out" -> You must stabilize him within 30s or Game Over.
+
+---
+
+## VIII. The Gameplay Loop
 
 > **"The fight is just the beginning. Redemption is the end."**
 
@@ -214,7 +216,7 @@ Enemies are tactical human squads. They prioritize cover, flanking, and suppress
 
 ---
 
-## VIII. Atmosphere
+## IX. Atmosphere
 
 * **Visual Style**: Cold tones (Blue/Grey/Black) + High Contrast Neon Red (Enemy Lasers/UI).
 * **UI**: Minimalist, Medical Monitor aesthetic with digital glitch effects.
@@ -223,7 +225,8 @@ Enemies are tactical human squads. They prioritize cover, flanking, and suppress
     * *Enemy*: Tactical radio chatter, static.
 
 ---
-## IX. Credits & Acknowledgments
+
+## X. Credits & Acknowledgments
 
 * **Original Concept**: Poleaxe
 * **Design Consultant**: Gemini (AI)
