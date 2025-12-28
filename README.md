@@ -50,7 +50,11 @@
 ## III. Core Mechanic: The STRAIN Gauge
 
 This is your lifeline, replacing the traditional HP bar.
-**UI Design**: A dynamic EKG-style monitor stretching across the top of the screen (Refer to Concept Art).
+**UI Design**: A dynamic EKG-style monitor stretching across the top of the screen.
+
+**Visual Reference: UI & Strain Dynamics**
+<video src="UI Focus.mp4" controls width="100%"></video>
+> *Video Reference: The UI visually represents the infection level. Note the audio cues (heartbeat) accelerating as the Strain reaches Critical levels.*
 
 ### A. Rules of Strain
 * **Passive Accumulation**: Increases slowly over time (viral corruption).
@@ -74,6 +78,11 @@ This is your lifeline, replacing the traditional HP bar.
 
 ### D. Action: Stabilize
 You must rush to the dying enemy and perform emergency care before time runs out.
+
+**Visual Reference: The Stabilize Action**
+<video src="Gameplay Action.mp4" controls width="100%"></video>
+> *Video Reference: Rin performs emergency stabilization on a downed SWAT member at J's Bar. Notice the tension: saving the enemy uses her own bio-energy, increasing her infection risk.*
+
 * **Action**: Hold the interaction key to stabilize.
 * **Choice**:
     1.  **Use Medkit**: Consumes a rare resource. Safe.
