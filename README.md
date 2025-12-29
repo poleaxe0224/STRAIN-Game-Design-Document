@@ -53,7 +53,7 @@ This is your lifeline, replacing the traditional HP bar.
 **UI Design**: A dynamic EKG-style monitor stretching across the top of the screen.
 
 **Visual Reference: UI & Strain Dynamics**
-https://github.com/user-attachments/assets/832b762d-559a-44a5-92bf-5bacd12c1417
+<video src="UI Focus.mp4" controls width="100%"></video>
 > *Video Reference: The UI visually represents the infection level. Note the audio cues (heartbeat) accelerating as the Strain reaches Critical levels.*
 
 ### A. Rules of Strain
@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/832b762d-559a-44a5-92bf-5bacd12c1417
 You must rush to the dying enemy and perform emergency care before time runs out.
 
 **Visual Reference: The Stabilize Action**
-https://github.com/user-attachments/assets/c606a5e4-4135-4e9f-9e92-48a98a64bef8
+<video src="Gameplay Action.mp4" controls width="100%"></video>
 > *Video Reference: Rin performs emergency stabilization on a downed SWAT member at J's Bar. Notice the tension: saving the enemy uses her own bio-energy, increasing her infection risk.*
 
 * **Action**: Hold the interaction key to stabilize.
