@@ -54,7 +54,7 @@ This is your lifeline, replacing the traditional HP bar.
 
 **Visual Reference: UI & Strain Dynamics**
 
-[▶ Watch Video Reference: UI Focus](https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/UI%20Focus.mp4)
+[▶ Watch Video Reference: UI Focus] https://github.com/user-attachments/assets/6446ef7b-a2f0-4888-87b3-932ed6eb808e
 > *Video Reference: The UI visually represents the infection level. Note the audio cues (heartbeat) accelerating as the Strain reaches Critical levels.*
 
 ### A. Rules of Strain
@@ -82,7 +82,7 @@ You must rush to the dying enemy and perform emergency care before time runs out
 
 **Visual Reference: The Stabilize Action**
 
-[▶ Watch Video Reference: Gameplay Action](https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/Gameplay%20Action.mp4)
+[▶ Watch Video Reference: Gameplay Action] https://github.com/user-attachments/assets/9f11b3ed-d6be-45c7-a778-20db0ffe90a3
 > *Video Reference: Rin performs emergency stabilization on a downed SWAT member at J's Bar. Notice the tension: saving the enemy uses her own bio-energy, increasing her infection risk.*
 
 * **Action**: Hold the interaction key to stabilize.
