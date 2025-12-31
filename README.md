@@ -1,4 +1,4 @@
-# Game Design Document: STRAIN (Ver 1.1)
+# Game Design Document: STRAIN (Ver 1.2)
 
 ![Concept Art](https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/concept_art.jpg)
 > *Concept Art: The tutorial stage at "J's Bar". Rin hides from an FBI Negotiator while managing critical Strain levels.*
@@ -37,7 +37,27 @@
 
 ---
 
-## III. Core Mechanic: The STRAIN Gauge
+## III. Core Gameplay & Controls
+
+Before managing the infection, players must master movement and non-lethal engagement.
+
+### A. Movement Logic
+* **Sneak (Crouch)**: Essential state. Reduces visibility by 40% and noise radius to 0.5m.
+* **Sprint**: High speed but high noise. Attracts enemies from adjacent rooms.
+* **Traversal**: Characters can vault over low cover and drag unconscious bodies to hide them.
+
+### B. Basic Actions (No Strain Cost)
+* **CQC Strike (Melee)**: A quick physical attack. Damages Enemy **CP (Consciousness)**, not HP.
+* **Takedown**: Context-sensitive action. Available when an enemy is unaware (Stealth) or stunned (0 CP). Instantly neutralizes the target without killing.
+* **Interact / Stabilize**: Hold button to open doors, hack terminals, or **Save Dying Enemies**.
+
+### C. Abilities (Strain Cost)
+* Each character has 2 Active Abilities (e.g., Shield, Dash) linked to the **Strain Gauge**.
+* Using these is powerful but accelerates your infection rate.
+
+---
+
+## IV. Core Mechanic: The STRAIN Gauge
 
 **UI Design**: A dynamic EKG-style monitor replacing the HP bar.
 
@@ -47,7 +67,7 @@
 * **Damage Spike**: Pain accelerates viral replication.
 * **Reduction**: Injecting rare "Antivirals" (Scarcity Resource).
 
-### B. The "Non-Lethal" Combat Loop (Updated)
+### B. The "Non-Lethal" Combat Loop
 * **Design Challenge**: How to fight without killing?
 * **Mechanic**: Enemies have **HP (Health)** and **CP (Consciousness Points)**.
     * **Takedowns**: Attacks deplete CP. When CP = 0, enemy is "Unconscious" (Safe).
@@ -80,7 +100,7 @@ You must rush to the dying enemy and perform emergency care.
 
 ---
 
-## IV. Game Over Conditions
+## V. Game Over Conditions
 
 1.  **Viral Overload**: STRAIN hits 100%. Subject loses control.
 2.  **Proven Guilty**: A human enemy dies (Bleed out timer hits 0).
@@ -88,7 +108,7 @@ You must rush to the dying enemy and perform emergency care.
 
 ---
 
-## V. Characters & Progression
+## VI. Characters & Progression
 
 ### A. Arthur - "The Breaker" (Tank)
 * **Ability**: **Gravity Shield** - Absorbs and **reflects** kinetic energy.
@@ -100,7 +120,7 @@ You must rush to the dying enemy and perform emergency care.
 
 ---
 
-## VI. Antagonists & AI Logic
+## VII. Antagonists & AI Logic
 
 ### AI Behavior: The "Friendly Fire" Risk
 Enemies are aggressive and undisciplined.
@@ -110,7 +130,7 @@ Enemies are aggressive and undisciplined.
 
 ---
 
-## VII. Sample Level Design: "J's Bar"
+## VIII. Sample Level Design: "J's Bar"
 
 **Objective**: Escape the incoming firebombing run (Urgency Timer).
 
@@ -124,7 +144,7 @@ Enemies are aggressive and undisciplined.
 
 ---
 
-## VIII. The Gameplay Loop (Addressed)
+## IX. The Gameplay Loop
 
 **Critique Response**: *Why not just stealth and do nothing?*
 **Answer**: **Entropy & Scarcity.**
@@ -135,18 +155,19 @@ Enemies are aggressive and undisciplined.
 
 ---
 
-## IX. Credits & Acknowledgments
+## X. Credits & Acknowledgments
 
 * **Original Concept**: Poleaxe
 * **Design Consultant**: Gemini (AI)
 * **Community Contributors**:
     * *kroltan (GDN)* - For identifying the "Passive Playstyle" flaw and the need for a "Non-Lethal Combat" definition.
+    * *Bloodbane (GDN)* - For pointing out the lack of basic gameplay definitions (Movement & CQC).
     * *Joshthedruid2* (Reddit) - For genre clarification.
     * *WittyConsideration57* (Reddit) - For feedback on algorithm definition.
 
 ---
 
-## X. Technical Specifications
+## XI. Technical Specifications
 
 ### A. Non-Lethal Hitbox Logic
 * **Limbs**: Shooting legs = Slow (Movement Penalty).
