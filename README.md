@@ -1,4 +1,4 @@
-# Game Design Document: STRAIN (Ver 1.2)
+# Game Design Document: STRAIN (Ver 1.3)
 
 ![Concept Art](https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/concept_art.jpg)
 > *Concept Art: The tutorial stage at "J's Bar". Rin hides from an FBI Negotiator while managing critical Strain levels.*
@@ -36,7 +36,7 @@
     * **External**: Humans are hunting you, but killing them confirms you are a monster (Game Over).
 
 ### 3. The Goal
-1.  Secure the Antiviral to suppress the virus.
+1.  Secure **"The Patient Zero Sample"** to suppress the virus.
 2.  Escape the Quarantine Zone before the virus consumes your mind, and expose the truth to the world.
 
 ---
@@ -48,6 +48,7 @@ Before managing the infection, players must master movement and non-lethal engag
 ### A. Movement Logic
 * **Sneak (Crouch)**: Essential state. Reduces visibility by 40% and noise radius to 0.5m.
 * **Sprint**: High speed but high noise. Attracts enemies from adjacent rooms.
+* **Dash (Universal Action)**: A sudden burst of directional movement to dodge attacks. **Consumes Strain.**
 * **Traversal**: Characters can vault over low cover and drag unconscious bodies to hide them.
 
 ### B. Basic Actions (No Strain Cost)
@@ -56,7 +57,7 @@ Before managing the infection, players must master movement and non-lethal engag
 * **Interact / Stabilize**: Hold button to open doors, hack terminals, or **Save Dying Enemies**.
 
 ### C. Abilities (Strain Cost)
-* Each character has 2 Active Abilities (e.g., Shield, Dash) linked to the **Strain Gauge**.
+* Each character has 2 Unique Active Abilities (e.g., Shield, Phase Shift) linked to the **Strain Gauge**.
 * Using these is powerful but accelerates your infection rate.
 
 ---
@@ -68,14 +69,14 @@ This is your lifeline, replacing the traditional HP bar.
 
 **Visual Reference: UI & Strain Dynamics**
 
-[▶ Watch Video Reference: UI Focus] https://github.com/user-attachments/assets/2fc626c3-ba08-451b-9817-300e178b5f18
+[▶ Watch Video Reference: UI Focus] https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/UI%20Focus.mp4
 > *Video Reference: The UI visually represents the infection level. Note the audio cues (heartbeat) accelerating as the Strain reaches Critical levels.*
 
 ### A. Rules of Strain
 * **Passive Accumulation**: Increases slowly over time.
 * **Active Cost**: Using abilities consumes Strain.
 * **Damage Spike**: Pain accelerates viral replication.
-* **Reduction**: Injecting rare "Antivirals" (Scarcity Resource).
+* **Reduction**: Injecting rare **"Stabilizers"** (Scarcity Resource).
 
 ### B. The "Non-Lethal" Combat Loop
 * **Design Challenge**: How to fight without killing?
@@ -95,22 +96,22 @@ You must rush to the dying enemy and perform emergency care before time runs out
 
 **Visual Reference: The Stabilize Action**
 
-[▶ Watch Video Reference: Gameplay Action] https://github.com/user-attachments/assets/f70adb06-5cba-4345-86dc-e95765df4eaa
+[▶ Watch Video Reference: Gameplay Action] https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/Gameplay%20Action.mp4
 > *Video Reference: Rin performs emergency stabilization on a downed SWAT member at J's Bar. Notice the tension: saving the enemy uses her own bio-energy, increasing her infection risk.*
 
 * **Action**: Hold the interaction key to stabilize.
 * **Choice**:
-    1.  **Use Medkit**: Safe, but strictly limited inventory (Max 2 slots).
+    1.  **Use Trauma Kit**: Safe, but strictly limited inventory (Max 2 slots).
     2.  **Cauterize (Strain Ability)**: Infinite use, but **Increases Strain by 15%**.
-* **The Dilemma**: You are running out of Medkits. You *must* use your own Strain (Health) to keep your hunters alive.
+* **The Dilemma**: You are running out of **Trauma Kits**. You *must* use your own Strain (Health) to keep your hunters alive.
 
 ### E. The Strain Algorithm (Prototype Values)
 *Note: Values are illustrative for prototyping and subject to balancing.*
 
 * **Base Variables**: `Current_Strain` (0-100).
 * **Action Costs**:
-    * `Dash`: +3.0%
-    * `Ability`: +12.0%
+    * `Dash` (Universal): +3.0%
+    * `Unique Ability`: +12.0%
     * `Cauterize`: +15.0% (The Moral Tax)
 * **Thresholds**:
     * `> 80%`: Hallucinations / Accuracy penalty.
@@ -133,7 +134,7 @@ You must rush to the dying enemy and perform emergency care before time runs out
     * *Risk*: Reflected bullets can accidentally kill enemies, forcing a rescue.
 
 ### B. Rin - "The Phantom" (Scout)
-* **Ability**: **Phase Dash** - Moves through objects.
+* **Ability**: **Phase Shift** - Moves through objects.
 * **Ability**: **Disarm** - Steal magazines/grenades from enemies to prevent them from hurting themselves/others.
 
 ---
@@ -167,9 +168,9 @@ Enemies are aggressive and undisciplined.
 **Critique Response**: *Why not just stealth and do nothing?*
 **Answer**: **Entropy & Scarcity.**
 
-1.  **Entropy**: The "Strain" virus grows faster if you remain static (Stagnation). Movement flushes the system.
-2.  **The Hunter**: "Cleaner" units with flamethrowers sweep the map. They cannot be saved; they must be run from. They force the player forward into the path of regular police.
-3.  **Resource Drain**: You have limited Antivirals. Every second spent waiting is a second closer to Overload. You must push aggressively to find the exit.
+1.  **Entropy**: The "Strain" virus grows faster if you remain static (Stagnation).
+2.  **The Hunter**: "Cleaner" units with flamethrowers sweep the map. **They can be saved**, but their heavy armor and aggressive tactics make incapacitating them extremely risky. Usually, they force the player forward into the path of regular police.
+3.  **Resource Drain**: You have limited **Stabilizers**. Every second spent waiting is a second closer to Overload. You must push aggressively to find the exit.
 
 ---
 
