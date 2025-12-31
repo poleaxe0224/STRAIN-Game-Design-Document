@@ -35,6 +35,10 @@
     * **Internal**: The virus is multiplying.
     * **External**: Humans are hunting you, but killing them confirms you are a monster (Game Over).
 
+### 3. The Goal
+1.  Secure the Antiviral to suppress the virus.
+2.  Escape the Quarantine Zone before the virus consumes your mind, and expose the truth to the world.
+
 ---
 
 ## III. Core Gameplay & Controls
@@ -59,7 +63,13 @@ Before managing the infection, players must master movement and non-lethal engag
 
 ## IV. Core Mechanic: The STRAIN Gauge
 
-**UI Design**: A dynamic EKG-style monitor replacing the HP bar.
+This is your lifeline, replacing the traditional HP bar.
+**UI Design**: A dynamic EKG-style monitor stretching across the top of the screen.
+
+**Visual Reference: UI & Strain Dynamics**
+
+[▶ Watch Video Reference: UI Focus](https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/UI%20Focus.mp4)
+> *Video Reference: The UI visually represents the infection level. Note the audio cues (heartbeat) accelerating as the Strain reaches Critical levels.*
 
 ### A. Rules of Strain
 * **Passive Accumulation**: Increases slowly over time.
@@ -80,7 +90,15 @@ Before managing the infection, players must master movement and non-lethal engag
     * Timer hits 0 = **Moral Game Over**.
 
 ### D. Action: Stabilize
-You must rush to the dying enemy and perform emergency care.
+
+You must rush to the dying enemy and perform emergency care before time runs out.
+
+**Visual Reference: The Stabilize Action**
+
+[▶ Watch Video Reference: Gameplay Action](https://raw.githubusercontent.com/poleaxe0224/STRAIN-Game-Design-Document/main/Gameplay%20Action.mp4)
+> *Video Reference: Rin performs emergency stabilization on a downed SWAT member at J's Bar. Notice the tension: saving the enemy uses her own bio-energy, increasing her infection risk.*
+
+* **Action**: Hold the interaction key to stabilize.
 * **Choice**:
     1.  **Use Medkit**: Safe, but strictly limited inventory (Max 2 slots).
     2.  **Cauterize (Strain Ability)**: Infinite use, but **Increases Strain by 15%**.
